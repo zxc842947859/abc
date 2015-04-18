@@ -1,6 +1,9 @@
 ---
-layout:post
-title:哈哈
+layout: post
+title: "Core Data"
+date: 2015-04-019 06:36
+comments: true
+categories: 
 ---
 #Core Data
 ###前言
