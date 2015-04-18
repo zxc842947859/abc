@@ -146,7 +146,7 @@
     
   </header>
   <div class="entry-content">
-    <h1 id="core-data">Core Data</h1>
+    <h1 id="section">只是学习,测试用</h1>
 <p>###前言</p>
 
 <ul>
@@ -157,16 +157,17 @@
 
 <h4 id="ios">iOS中的数据持久化方式，基本上有以下四种：</h4>
 
-<p><code>
-1.属性列表 ---- 涉及到的主要类：NSUserDefaults“偏好设置”
-2.对象归档 ---- 使用对象归档,对象必须实现NSCoding协议 实现两个方法:
-- (void) encodeWithCoder:(NSCoder *)encoder 
-- (void) initWithCoder:(NSCoder *)encoder
-3.SQLite3 ---- SQLite是一个开源的嵌入式关系数据库，它在2000年由D. Richard Hipp发布，它的减少应用程序管理数据的开销，SQLite可移植性好，很容易使用，很小，高效而且可靠 不建议直接操作SQlite 可以采用开源的第三方法框架 FMDB
-4.Core Data
-</code></p>
+<ul>
+  <li>1.属性列表 —- 涉及到的主要类：NSUserDefaults“偏好设置”</li>
+  <li>2.对象归档 —- 使用对象归档,对象必须实现NSCoding协议 实现两个方法:</li>
+  <li>(void) encodeWithCoder:(NSCoder *)encoder</li>
+  <li>(void) initWithCoder:(NSCoder *)encoder</li>
+  <li>3.SQLite3 —- SQLite是一个开源的嵌入式关系数据库，它在2000年由D. 
+ Richard Hipp发布，它的减少应用程序管理数据的开销，SQLite可移植性好，很- - 容- 易使用，很小，高效而且可靠 不建议直接操作SQlite 可以采用开源的第三方法 - 框架 FMDB</li>
+  <li>4.Core Data</li>
+</ul>
 
-<h4 id="core-data-1">1.Core Data简介:</h4>
+<h4 id="core-data">1.Core Data简介:</h4>
 
 <ul>
   <li>
@@ -187,20 +188,21 @@
 
 <p>================================================================</p>
 
-<h4 id="section">持久化概念:</h4>
+<h4 id="section-1">持久化概念:</h4>
 <p><code>
 &lt;持久化（Persistence）&gt;，即把数据（如内存中的对象）保存到可永久保存的存储设备中（如硬盘）。持久化的主要应用是将内存中的对象存储在关系型的数据库中，当然也可以存储在磁盘文件中、XML数据文件中等等。
 持久化是将程序数据在持久状态和瞬时状态间转换的机制。
 JDBC就是一种持久化机制。文件IO也是一种持久化机制。
 </code></p>
 
-<h4 id="section-1">数据持久化概念:</h4>
+<h4 id="section-2">数据持久化概念:</h4>
 
-<p><code>
-数据持久化就是将内存中的数据模型 转换为 存储模型,以及将 存储模型 转换为 内存中的数据模型的 统称. 数据模型可以是任何数据结构或对象模型,存储模型可以是关系模型、XML、二进制流等。cmp和Hibernate只是对象模型到关系模型之间转换的不同实现。
-</code></p>
+<p>```
+数据持久化就是将内存中的数据模型 转换为 存储模型,以及将 存储模型 转换为 内存中的数据模型的 统称. 数据模型可以是任何数据结构或对象模型,存储模型可以是关系模型、XML、二进制流等。cmp和Hibernate只是对象模型到关系模型之间转换的不同实现。</p>
 
-<h4 id="core-data-2">2.使用Core Data</h4>
+<p>```</p>
+
+<h4 id="core-data-1">2.使用Core Data</h4>
 
 <p>1.需要在Xcode中的数据模型编辑器中设计好各个实体以及定义好他们的属性和关系。之后，通过操作这些对象，结合Core Data完成数据的持久化：</p>
 
@@ -208,7 +210,7 @@ JDBC就是一种持久化机制。文件IO也是一种持久化机制。
 
 <p><img src="/Users/chao/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/842947859/QQ/Temp.db/45861017-E452-4A0A-9B76-C2DE4EA43045.png" alt="Mou icon" /></p>
 
-<h4 id="core-data-3">Core Data的学习建议:</h4>
+<h4 id="core-data-2">Core Data的学习建议:</h4>
 <ul>
   <li>第一眼看到Core Data令人生畏的复杂架构关系，很多人都会有无从下手的感觉</li>
   <li>可是，一旦理解架构图中各个部件的组成及相互之间的关系，就能体会到Core Data API的简洁和直观了</li>
@@ -248,7 +250,7 @@ JDBC就是一种持久化机制。文件IO也是一种持久化机制。
   </li>
 </ul>
 
-<h4 id="section-2">图形说明</h4>
+<h4 id="section-3">图形说明</h4>
 
 <p><img src="/Users/chao/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/842947859/QQ/Temp.db/5C4D5D64-AA49-4B8D-AC7D-1C04203625AC.png" alt="Mou Icon" /></p>
 
@@ -274,6 +276,14 @@ NSPersistentStoreCoordinator
 以上三个类，都不是线程安全的，同时这些类实例化的对象仅允许在被创建的线程内被使用
 这意味着，在多线程使用Core Data的时候，每个需要执行Core Data的线程都需要有一个NSManagedObjectContext，但是每一个NSManagedObjectContext都不知道彼此的存在，同时在一个上下文中所做的修改，也不会自动同步到另一个上下文中
 </code></p>
+
+<p>```
+- (NSString *)appendDocumentDir {
+    NSString *dir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    return [dir stringByAppendingPathComponent:self.lastPathComponent];
+}</p>
+
+<p>```</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->

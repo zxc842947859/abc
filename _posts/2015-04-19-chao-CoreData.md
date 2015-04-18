@@ -2,7 +2,8 @@
 layout: post
 title: Core Data
 ---
-#Core Data
+
+#只是学习,测试用
 ###前言
 
 - Core Data 不用去写SQLite语句，是完全面向对象的数据操作API,如果之前没有数据库开发经验，想要写出漂亮的SQLite或没有错误的SQLite是很难的，
@@ -13,14 +14,14 @@ title: Core Data
 
 ####iOS中的数据持久化方式，基本上有以下四种：
 
-```
-1.属性列表 ---- 涉及到的主要类：NSUserDefaults“偏好设置”
-2.对象归档 ---- 使用对象归档,对象必须实现NSCoding协议 实现两个方法:
+- 1.属性列表 ---- 涉及到的主要类：NSUserDefaults“偏好设置”
+- 2.对象归档 ---- 使用对象归档,对象必须实现NSCoding协议 实现两个方法:
 - (void) encodeWithCoder:(NSCoder *)encoder 
 - (void) initWithCoder:(NSCoder *)encoder
-3.SQLite3 ---- SQLite是一个开源的嵌入式关系数据库，它在2000年由D. Richard Hipp发布，它的减少应用程序管理数据的开销，SQLite可移植性好，很容易使用，很小，高效而且可靠 不建议直接操作SQlite 可以采用开源的第三方法框架 FMDB
-4.Core Data
-```
+- 3.SQLite3 ---- SQLite是一个开源的嵌入式关系数据库，它在2000年由D. 
+ Richard Hipp发布，它的减少应用程序管理数据的开销，SQLite可移植性好，很- - 容- 易使用，很小，高效而且可靠 不建议直接操作SQlite 可以采用开源的第三方法 - 框架 FMDB
+- 4.Core Data
+
 
 ####1.Core Data简介:
 
@@ -52,6 +53,7 @@ JDBC就是一种持久化机制。文件IO也是一种持久化机制。
 
 ```
 数据持久化就是将内存中的数据模型 转换为 存储模型,以及将 存储模型 转换为 内存中的数据模型的 统称. 数据模型可以是任何数据结构或对象模型,存储模型可以是关系模型、XML、二进制流等。cmp和Hibernate只是对象模型到关系模型之间转换的不同实现。
+
 ```
 
 ####2.使用Core Data
@@ -61,6 +63,7 @@ JDBC就是一种持久化机制。文件IO也是一种持久化机制。
 ![Mou icon](file:/Users/chao/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/842947859/QQ/Temp.db/FEE1BA14-8585-43A5-9FFD-4AB461C8C276.png)
 
 ![Mou icon](/Users/chao/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/842947859/QQ/Temp.db/45861017-E452-4A0A-9B76-C2DE4EA43045.png)
+
 
 ####Core Data的学习建议:
 * 第一眼看到Core Data令人生畏的复杂架构关系，很多人都会有无从下手的感觉
@@ -82,3 +85,12 @@ JDBC就是一种持久化机制。文件IO也是一种持久化机制。
 *  scalar 标量类型：默认NSNumber，也可以使用int64_t，float_t或BOOL在iOS5和OS X10.7之前，scalar不能自动生成，程序员必须自己添加setter和getter的实现
 如果创建被管理对象的子类时勾选了此选项，子类中不会对实体的属性做处理，保存原始数据类型
 例：int_16不会再变为NSNuber类型 ，所以默认都不用勾选* @dynamic在Objective-C中，如果将某个属性实现为@dynamic，意味着告诉编译器不会在编译时确定这个属性的行为实现，因此不需要在编译期间对这个属性的getter、setter做检查####Core Data 中的线程安全```一定要记住：Core Data不是线程安全的NSManagedObjectNSManagedObjectContextNSPersistentStoreCoordinator以上三个类，都不是线程安全的，同时这些类实例化的对象仅允许在被创建的线程内被使用这意味着，在多线程使用Core Data的时候，每个需要执行Core Data的线程都需要有一个NSManagedObjectContext，但是每一个NSManagedObjectContext都不知道彼此的存在，同时在一个上下文中所做的修改，也不会自动同步到另一个上下文中```
+
+
+```
+- (NSString *)appendDocumentDir {
+    NSString *dir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    return [dir stringByAppendingPathComponent:self.lastPathComponent];
+}
+
+```
