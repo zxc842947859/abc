@@ -1,0 +1,317 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Core Data &#8211; 张雪超</title>
+<meta name="description" content="哈哈.">
+<meta name="keywords" content="">
+
+
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Core Data">
+<meta property="og:description" content="哈哈.">
+<meta property="og:url" content="/chao-CoreData/">
+<meta property="og:site_name" content="张雪超">
+
+
+
+
+
+<link rel="canonical" href="/chao-CoreData/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="张雪超 Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Your Name photo" class="author-photo">
+					<h4>Your Name</h4>
+					<p>Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice.</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Learn More</span></a></li>
+				<li>
+					<a href="mailto:you@email.com"><i class="fa fa-fw fa-envelope"></i> Email</a>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/tags/">All Tags</a></li>
+			</ul>
+		</li>
+		
+	    
+	        
+	    
+	    <li><a href="/theme-setup/" >Theme Setup</a></li>
+	  
+	    
+	        
+	        
+	    <li><a href="http://mademistakes.com" target="_blank">External Link</a></li>
+	  
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/chao-CoreData/" rel="bookmark" title="Core Data">Core Data</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2015-04-19T00:00:00-04:00">April 19, 2015</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+          Reading time ~1 minute
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <h1 id="core-data">Core Data</h1>
+<p>###前言</p>
+
+<ul>
+  <li>Core Data 不用去写SQLite语句，是完全面向对象的数据操作API,如果之前没有数据库开发经验，想要写出漂亮的SQLite或没有错误的SQLite是很难的，</li>
+  <li>Core Data,第一眼看着挺复杂的，可是当你理解他核心的几个对象及关系后再用起来就很方便也很简单，现在外面开发的有很多都用Core Data来做离线数据缓存 为用户节约流量，避免应用打开每次都要去加载网络数据</li>
+  <li>Core Data也是XMPP里保存数据最核心的技术</li>
+</ul>
+
+<h4 id="ios">iOS中的数据持久化方式，基本上有以下四种：</h4>
+
+<p><code>
+1.属性列表 ---- 涉及到的主要类：NSUserDefaults“偏好设置”
+2.对象归档 ---- 使用对象归档,对象必须实现NSCoding协议 实现两个方法:
+- (void) encodeWithCoder:(NSCoder *)encoder 
+- (void) initWithCoder:(NSCoder *)encoder
+3.SQLite3 ---- SQLite是一个开源的嵌入式关系数据库，它在2000年由D. Richard Hipp发布，它的减少应用程序管理数据的开销，SQLite可移植性好，很容易使用，很小，高效而且可靠 不建议直接操作SQlite 可以采用开源的第三方法框架 FMDB
+4.Core Data
+</code></p>
+
+<h4 id="core-data-1">1.Core Data简介:</h4>
+
+<ul>
+  <li>
+    <p>Core Data 是iOS SDK里的一个很强大的框架允许程序员<code>以面向对象的方式存储和管理数据</code>；</p>
+  </li>
+  <li>
+    <p>Core Data是一个模型层的技术,帮助建立代表程序状态的模型层,Core Data 也是一种持久化技术,能将模型对象的状态<code>持久化</code>到磁盘,最重要的特点是:<code>Core Data 不仅是一个加载、保存数据的框架，它还能和内存中的数据很好的共事</code>；</p>
+  </li>
+  <li>在数据操作过程中，<code>无需写任何SQL语句</code>
+    <ul>
+      <li>Core Data使用包括<code>实体</code>和实体间关系，以及查找符合某些条件实体的请求等内容</li>
+      <li>开发者可以在纯对象层上查找与管理这些数据，而不必担心存储和查找的实现细节</li>
+    </ul>
+  </li>
+  <li>Core Data框架最早出现在Mac OS X 10.4 Tiger (Mac OS X v10.4，开发代号“Tiger”（老虎），是苹果电脑公司开发的操作系统，于2005年4月29日正式上市销售。) 与 iOS 3.0系统(iPhone OS3.0面世与iPhone3GS。是在2009年6月17日发布)，<code>历时10年</code>经过成千上万的应用程序以及数以百万用户的反复的验证，Core Data确实已经是<code>一套非常成熟的框架</code></li>
+  <li>CoreData利用了Objective-C语言和运行时，巧妙地集成了Core Foundation框架。是一个易于使用的框架，不仅可以优雅地管理对象图，而且<code>在内存管理方面表现异常优异</code></li>
+</ul>
+
+<p>================================================================</p>
+
+<h4 id="section">持久化概念:</h4>
+<p><code>
+&lt;持久化（Persistence）&gt;，即把数据（如内存中的对象）保存到可永久保存的存储设备中（如硬盘）。持久化的主要应用是将内存中的对象存储在关系型的数据库中，当然也可以存储在磁盘文件中、XML数据文件中等等。
+持久化是将程序数据在持久状态和瞬时状态间转换的机制。
+JDBC就是一种持久化机制。文件IO也是一种持久化机制。
+</code></p>
+
+<h4 id="section-1">数据持久化概念:</h4>
+
+<p><code>
+数据持久化就是将内存中的数据模型 转换为 存储模型,以及将 存储模型 转换为 内存中的数据模型的 统称. 数据模型可以是任何数据结构或对象模型,存储模型可以是关系模型、XML、二进制流等。cmp和Hibernate只是对象模型到关系模型之间转换的不同实现。
+</code></p>
+
+<h4 id="core-data-2">2.使用Core Data</h4>
+
+<p>1.需要在Xcode中的数据模型编辑器中设计好各个实体以及定义好他们的属性和关系。之后，通过操作这些对象，结合Core Data完成数据的持久化：</p>
+
+<p><img src="file:/Users/chao/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/842947859/QQ/Temp.db/FEE1BA14-8585-43A5-9FFD-4AB461C8C276.png" alt="Mou icon" /></p>
+
+<p><img src="/Users/chao/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/842947859/QQ/Temp.db/45861017-E452-4A0A-9B76-C2DE4EA43045.png" alt="Mou icon" /></p>
+
+<h4 id="core-data-3">Core Data的学习建议:</h4>
+<ul>
+  <li>第一眼看到Core Data令人生畏的复杂架构关系，很多人都会有无从下手的感觉</li>
+  <li>可是，一旦理解架构图中各个部件的组成及相互之间的关系，就能体会到Core Data API的简洁和直观了</li>
+  <li><code>Core Data stack</code>：如果能够理解Core Data stack中的各个成员所扮演的角色，那么再使用Core Data就不会感觉到困难了</li>
+  <li>误区：<code>有很多人都叫它面向对象型的数据库，但Core Data不是一个数据库，不要用数据库的眼光去看待Core Data</code></li>
+  <li>Core Data不是应用程序的数据库，也不是将数据持久化保存到数据库的API。Core Data<code>是一个用于管理对象图的框架</code>。Core Data可以把对象图写入磁盘从而持久化保存，但是这不是框架的主要目标</li>
+</ul>
+
+<h4 id="core-data-stack">3.Core Data stack</h4>
+
+<ul>
+  <li>
+    <p>Core Data stack是Core Data的核心，由一组Core Data核心对象组成</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Calss</th>
+          <th>描述</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>NSManagedObjectModel</td>
+          <td>被管理对象模型</td>
+        </tr>
+        <tr>
+          <td>NSPersistentStoreCoordinator</td>
+          <td>负责将数据保存到磁盘</td>
+        </tr>
+        <tr>
+          <td>NSManagedObjectContext</td>
+          <td>负责管理模型对象的集合</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ul>
+
+<h4 id="section-2">图形说明</h4>
+
+<p><img src="/Users/chao/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/842947859/QQ/Temp.db/5C4D5D64-AA49-4B8D-AC7D-1C04203625AC.png" alt="Mou Icon" /></p>
+
+<ul>
+  <li>use scalar properties for primitive data type // 使用标量属性的原始数据类型</li>
+  <li>
+    <p>scalar 标量类型：默认NSNumber，也可以使用int64_t，float_t或BOOL
+在iOS5和OS X10.7之前，scalar不能自动生成，程序员必须自己添加setter和getter的实现
+如果创建被管理对象的子类时勾选了此选项，子类中不会对实体的属性做处理，保存原始数据类型
+例：int_16不会再变为NSNuber类型 ，所以默认都不用勾选</p>
+  </li>
+  <li>@dynamic
+在Objective-C中，如果将某个属性实现为@dynamic，意味着告诉编译器不会在编译时确定这个属性的行为实现，因此不需要在编译期间对这个属性的getter、setter做检查</li>
+</ul>
+
+<h4 id="core-data-">Core Data 中的线程安全</h4>
+
+<p><code>
+一定要记住：Core Data不是线程安全的
+NSManagedObject
+NSManagedObjectContext
+NSPersistentStoreCoordinator
+以上三个类，都不是线程安全的，同时这些类实例化的对象仅允许在被创建的线程内被使用
+这意味着，在多线程使用Core Data的时候，每个需要执行Core Data的线程都需要有一个NSManagedObjectContext，但是每一个NSManagedObjectContext都不知道彼此的存在，同时在一个上下文中所做的修改，也不会自动同步到另一个上下文中
+</code></p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/chao-CoreData/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/chao-CoreData/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/chao-CoreData/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2015 Your Name. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/hpstr/" rel="notfollow">HPSTR Theme</a>.</span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'hpstrtheme'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+</body>
+</html>

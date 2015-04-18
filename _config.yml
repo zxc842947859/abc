@@ -14,16 +14,13 @@ owner:
   bio:            "Your bio goes here. It shouldn't be super long but a good two sentences or two should suffice."
   email:          you@email.com
   # Social networking links used in footer. Update and remove as you like.
-  twitter:        
-  facebook:       
   github:         
   stackexchange:  
   linkedin:       
   instagram:      
   flickr:         
   tumblr:         
-  # google plus id, include the '+', eg +mmistakes
-  google_plus:    +yourid
+
 
 # Background image to be tiled on all pages
 background: 
