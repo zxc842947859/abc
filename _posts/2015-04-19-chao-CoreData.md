@@ -13,15 +13,15 @@ title: Core Data
 
 
 ####iOS中的数据持久化方式，基本上有以下四种：
-``` 
-1.属性列表 ---- 涉及到的主要类：NSUserDefaults“偏好设置” 
-2.对象归档 ---- 使用对象归档,对象必须实现NSCoding协议 实现两个方法:
-- (void) encodeWithCoder:(NSCoder *)encoder 
-- (void) initWithCoder:(NSCoder *)encoder
-3.SQLite3 ---- SQLite是一个开源的嵌入式关系数据库，它在2000年由D. 
- Richard Hipp发布，它的减少应用程序管理数据的开销，SQLite可移植性好，很- - 容- 易使用，很小，高效而且可靠 不建议直接操作SQlite 可以采用开源的第三方法 - 框架 FMDB
+>
+1.属性列表 ---- 涉及到的主要类：NSUserDefaults“偏好设置”                   
+2.对象归档 ---- 使用对象归档,对象必须实现NSCoding协议 实现两个方法:                 
+- (void) encodeWithCoder:(NSCoder *)encoder                                                
+- (void) initWithCoder:(NSCoder *)encoder                                              
+3.SQLite3 ---- SQLite是一个开源的嵌入式关系数据库，它在2000年由D.                           
+ Richard Hipp发布，它的减少应用程序管理数据的开销，SQLite可移植性好，很- - 容- 易使用，很小，高效而且可靠 不建议直接操作SQlite 可以采用开源的第三方法 - 框架 FMDB                                                                         
  4.Core Data
-```
+
 
 ####1.Core Data简介:
 
@@ -37,7 +37,7 @@ title: Core Data
 * CoreData利用了Objective-C语言和运行时，巧妙地集成了Core Foundation框架。是一个易于使用的框架，不仅可以优雅地管理对象图，而且`在内存管理方面表现异常优异`
 
 
-================================================================
+---
 
 
 
@@ -68,7 +68,6 @@ JDBC就是一种持久化机制。文件IO也是一种持久化机制。
 * 可是，一旦理解架构图中各个部件的组成及相互之间的关系，就能体会到Core Data API的简洁和直观了
 * `Core Data stack`：如果能够理解Core Data stack中的各个成员所扮演的角色，那么再使用Core Data就不会感觉到困难了* 误区：`有很多人都叫它面向对象型的数据库，但Core Data不是一个数据库，不要用数据库的眼光去看待Core Data`* Core Data不是应用程序的数据库，也不是将数据持久化保存到数据库的API。Core Data`是一个用于管理对象图的框架`。Core Data可以把对象图写入磁盘从而持久化保存，但是这不是框架的主要目标
 ####3.Core Data stack
-
 * Core Data stack是Core Data的核心，由一组Core Data核心对象组成
 
      Calss                        | 描述    ---------------------------- | ------------------- |   NSManagedObjectModel	         |  被管理对象模型       |   NSPersistentStoreCoordinator |  负责将数据保存到磁盘   |   NSManagedObjectContext	     |  负责管理模型对象的集合 |
@@ -82,13 +81,16 @@ JDBC就是一种持久化机制。文件IO也是一种持久化机制。
 * use scalar properties for primitive data type // 使用标量属性的原始数据类型
 *  scalar 标量类型：默认NSNumber，也可以使用int64_t，float_t或BOOL在iOS5和OS X10.7之前，scalar不能自动生成，程序员必须自己添加setter和getter的实现
 如果创建被管理对象的子类时勾选了此选项，子类中不会对实体的属性做处理，保存原始数据类型
-例：int_16不会再变为NSNuber类型 ，所以默认都不用勾选* @dynamic在Objective-C中，如果将某个属性实现为@dynamic，意味着告诉编译器不会在编译时确定这个属性的行为实现，因此不需要在编译期间对这个属性的getter、setter做检查####Core Data 中的线程安全>一定要记住：Core Data不是线程安全的NSManagedObjectNSManagedObjectContextNSPersistentStoreCoordinator以上三个类，都不是线程安全的，同时这些类实例化的对象仅允许在被创建的线程内被使用这意味着，在多线程使用Core Data的时候，每个需要执行Core Data的线程都需要有一个NSManagedObjectContext，但是每一个NSManagedObjectContext都不知道彼此的存在，同时在一个上下文中所做的修改，也不会自动同步到另一个上下文中
+例：int_16不会再变为NSNuber类型 ，所以默认都不用勾选* @dynamic在Objective-C中，如果将某个属性实现为@dynamic，意味着告诉编译器不会在编译时确定这个属性的行为实现，因此不需要在编译期间对这个属性的getter、setter做检查####Core Data 中的线程安全>一定要记住：Core Data不是线程安全的NSManagedObjectNSManagedObjectContextNSPersistentStoreCoordinator以上三个类，都不是线程安全的，同时这些类实例化的对象仅允许在被创建的线程内被使用这意味着，在多线程使用Core Data的时候，每个需要执行Core Data的线程都需要有一个NSManagedObjectContext，但是每一个NSManagedObjectContext都不知道彼此的存在，同时在一个上下文中所做的修改，也不会自动同步到另一个上下文中
 
 
-```objc
-- (NSString *)appendDocumentDir {
-    NSString *dir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    return [dir stringByAppendingPathComponent:self.lastPathComponent];
+```Obejctive-C
++ (instancetype)herosListWithDict:(NSDictionary *)dict {
+    id herosList = [[self alloc] init];
+    
+    [herosList setValuesForKeysWithDictionary:dict];
+    
+    return herosList;
 }
 
 ```
