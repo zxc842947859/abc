@@ -13,15 +13,15 @@ title: Core Data
 
 
 ####iOS中的数据持久化方式，基本上有以下四种：
-
-- 1.属性列表 ---- 涉及到的主要类：NSUserDefaults“偏好设置”
-- 2.对象归档 ---- 使用对象归档,对象必须实现NSCoding协议 实现两个方法:
+``` 
+1.属性列表 ---- 涉及到的主要类：NSUserDefaults“偏好设置” 
+2.对象归档 ---- 使用对象归档,对象必须实现NSCoding协议 实现两个方法:
 - (void) encodeWithCoder:(NSCoder *)encoder 
 - (void) initWithCoder:(NSCoder *)encoder
-- 3.SQLite3 ---- SQLite是一个开源的嵌入式关系数据库，它在2000年由D. 
+3.SQLite3 ---- SQLite是一个开源的嵌入式关系数据库，它在2000年由D. 
  Richard Hipp发布，它的减少应用程序管理数据的开销，SQLite可移植性好，很- - 容- 易使用，很小，高效而且可靠 不建议直接操作SQlite 可以采用开源的第三方法 - 框架 FMDB
-- 4.Core Data
-
+ 4.Core Data
+```
 
 ####1.Core Data简介:
 
@@ -43,26 +43,24 @@ title: Core Data
 
 
 ####持久化概念:
-```
+>
 <持久化（Persistence）>，即把数据（如内存中的对象）保存到可永久保存的存储设备中（如硬盘）。持久化的主要应用是将内存中的对象存储在关系型的数据库中，当然也可以存储在磁盘文件中、XML数据文件中等等。
 持久化是将程序数据在持久状态和瞬时状态间转换的机制。
 JDBC就是一种持久化机制。文件IO也是一种持久化机制。
-```
+
 
 ####数据持久化概念:
-
-```
+>
 数据持久化就是将内存中的数据模型 转换为 存储模型,以及将 存储模型 转换为 内存中的数据模型的 统称. 数据模型可以是任何数据结构或对象模型,存储模型可以是关系模型、XML、二进制流等。cmp和Hibernate只是对象模型到关系模型之间转换的不同实现。
 
-```
 
 ####2.使用Core Data
 
 1.需要在Xcode中的数据模型编辑器中设计好各个实体以及定义好他们的属性和关系。之后，通过操作这些对象，结合Core Data完成数据的持久化：
 
-![Mou icon](file:/Users/chao/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/842947859/QQ/Temp.db/FEE1BA14-8585-43A5-9FFD-4AB461C8C276.png)
+![](images/myimage/123.png)
 
-![Mou icon](/Users/chao/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/842947859/QQ/Temp.db/45861017-E452-4A0A-9B76-C2DE4EA43045.png)
+![](images/myimage/45861017-E452-4A0A-9B76-C2DE4EA43045.png)
 
 
 ####Core Data的学习建议:
@@ -77,17 +75,17 @@ JDBC就是一种持久化机制。文件IO也是一种持久化机制。
 
 ####图形说明 
 
-![Mou Icon](/Users/chao/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/842947859/QQ/Temp.db/5C4D5D64-AA49-4B8D-AC7D-1C04203625AC.png)
+![](images/myimage/5C4D5D64-AA49-4B8D-AC7D-1C04203625AC.png)
 
 
 
 * use scalar properties for primitive data type // 使用标量属性的原始数据类型
 *  scalar 标量类型：默认NSNumber，也可以使用int64_t，float_t或BOOL在iOS5和OS X10.7之前，scalar不能自动生成，程序员必须自己添加setter和getter的实现
 如果创建被管理对象的子类时勾选了此选项，子类中不会对实体的属性做处理，保存原始数据类型
-例：int_16不会再变为NSNuber类型 ，所以默认都不用勾选* @dynamic在Objective-C中，如果将某个属性实现为@dynamic，意味着告诉编译器不会在编译时确定这个属性的行为实现，因此不需要在编译期间对这个属性的getter、setter做检查####Core Data 中的线程安全```一定要记住：Core Data不是线程安全的NSManagedObjectNSManagedObjectContextNSPersistentStoreCoordinator以上三个类，都不是线程安全的，同时这些类实例化的对象仅允许在被创建的线程内被使用这意味着，在多线程使用Core Data的时候，每个需要执行Core Data的线程都需要有一个NSManagedObjectContext，但是每一个NSManagedObjectContext都不知道彼此的存在，同时在一个上下文中所做的修改，也不会自动同步到另一个上下文中```
+例：int_16不会再变为NSNuber类型 ，所以默认都不用勾选* @dynamic在Objective-C中，如果将某个属性实现为@dynamic，意味着告诉编译器不会在编译时确定这个属性的行为实现，因此不需要在编译期间对这个属性的getter、setter做检查####Core Data 中的线程安全>一定要记住：Core Data不是线程安全的NSManagedObjectNSManagedObjectContextNSPersistentStoreCoordinator以上三个类，都不是线程安全的，同时这些类实例化的对象仅允许在被创建的线程内被使用这意味着，在多线程使用Core Data的时候，每个需要执行Core Data的线程都需要有一个NSManagedObjectContext，但是每一个NSManagedObjectContext都不知道彼此的存在，同时在一个上下文中所做的修改，也不会自动同步到另一个上下文中
 
 
-```
+``` Obejctive-C
 - (NSString *)appendDocumentDir {
     NSString *dir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     return [dir stringByAppendingPathComponent:self.lastPathComponent];

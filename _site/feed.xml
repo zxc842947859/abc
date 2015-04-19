@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-<title type="text">张雪超</title>
+<title type="text">chao</title>
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-04-18T19:11:49-04:00</updated>
+<updated>2015-04-19T04:34:08-04:00</updated>
 <id>/</id>
 <author>
   <name>Your Name</name>
@@ -35,16 +35,15 @@
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;ios&quot;&gt;iOS中的数据持久化方式，基本上有以下四种：&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;1.属性列表 —- 涉及到的主要类：NSUserDefaults“偏好设置”&lt;/li&gt;
-  &lt;li&gt;2.对象归档 —- 使用对象归档,对象必须实现NSCoding协议 实现两个方法:&lt;/li&gt;
-  &lt;li&gt;(void) encodeWithCoder:(NSCoder *)encoder&lt;/li&gt;
-  &lt;li&gt;(void) initWithCoder:(NSCoder *)encoder&lt;/li&gt;
-  &lt;li&gt;3.SQLite3 —- SQLite是一个开源的嵌入式关系数据库，它在2000年由D. 
- Richard Hipp发布，它的减少应用程序管理数据的开销，SQLite可移植性好，很- - 容- 易使用，很小，高效而且可靠 不建议直接操作SQlite 可以采用开源的第三方法 - 框架 FMDB&lt;/li&gt;
-  &lt;li&gt;4.Core Data&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;
+1.属性列表 ---- 涉及到的主要类：NSUserDefaults“偏好设置” 
+2.对象归档 ---- 使用对象归档,对象必须实现NSCoding协议 实现两个方法:
+- (void) encodeWithCoder:(NSCoder *)encoder 
+- (void) initWithCoder:(NSCoder *)encoder
+3.SQLite3 ---- SQLite是一个开源的嵌入式关系数据库，它在2000年由D. 
+ Richard Hipp发布，它的减少应用程序管理数据的开销，SQLite可移植性好，很- - 容- 易使用，很小，高效而且可靠 不建议直接操作SQlite 可以采用开源的第三方法 - 框架 FMDB
+ 4.Core Data
+&lt;/code&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;core-data&quot;&gt;1.Core Data简介:&lt;/h4&gt;
 
@@ -68,26 +67,26 @@
 &lt;p&gt;================================================================&lt;/p&gt;
 
 &lt;h4 id=&quot;section-1&quot;&gt;持久化概念:&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;
-&amp;lt;持久化（Persistence）&amp;gt;，即把数据（如内存中的对象）保存到可永久保存的存储设备中（如硬盘）。持久化的主要应用是将内存中的对象存储在关系型的数据库中，当然也可以存储在磁盘文件中、XML数据文件中等等。
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;lt;持久化（Persistence）&amp;gt;，即把数据（如内存中的对象）保存到可永久保存的存储设备中（如硬盘）。持久化的主要应用是将内存中的对象存储在关系型的数据库中，当然也可以存储在磁盘文件中、XML数据文件中等等。
 持久化是将程序数据在持久状态和瞬时状态间转换的机制。
-JDBC就是一种持久化机制。文件IO也是一种持久化机制。
-&lt;/code&gt;&lt;/p&gt;
+JDBC就是一种持久化机制。文件IO也是一种持久化机制。&lt;/p&gt;
 
 &lt;h4 id=&quot;section-2&quot;&gt;数据持久化概念:&lt;/h4&gt;
+&lt;blockquote&gt;
 
-&lt;p&gt;```
-数据持久化就是将内存中的数据模型 转换为 存储模型,以及将 存储模型 转换为 内存中的数据模型的 统称. 数据模型可以是任何数据结构或对象模型,存储模型可以是关系模型、XML、二进制流等。cmp和Hibernate只是对象模型到关系模型之间转换的不同实现。&lt;/p&gt;
-
-&lt;p&gt;```&lt;/p&gt;
+  &lt;p&gt;数据持久化就是将内存中的数据模型 转换为 存储模型,以及将 存储模型 转换为 内存中的数据模型的 统称. 数据模型可以是任何数据结构或对象模型,存储模型可以是关系模型、XML、二进制流等。cmp和Hibernate只是对象模型到关系模型之间转换的不同实现。&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h4 id=&quot;core-data-1&quot;&gt;2.使用Core Data&lt;/h4&gt;
 
 &lt;p&gt;1.需要在Xcode中的数据模型编辑器中设计好各个实体以及定义好他们的属性和关系。之后，通过操作这些对象，结合Core Data完成数据的持久化：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;file:/Users/chao/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/842947859/QQ/Temp.db/FEE1BA14-8585-43A5-9FFD-4AB461C8C276.png&quot; alt=&quot;Mou icon&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/myimage/123.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/Users/chao/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/842947859/QQ/Temp.db/45861017-E452-4A0A-9B76-C2DE4EA43045.png&quot; alt=&quot;Mou icon&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/myimage/45861017-E452-4A0A-9B76-C2DE4EA43045.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;core-data-2&quot;&gt;Core Data的学习建议:&lt;/h4&gt;
 &lt;ul&gt;
@@ -131,7 +130,7 @@ JDBC就是一种持久化机制。文件IO也是一种持久化机制。
 
 &lt;h4 id=&quot;section-3&quot;&gt;图形说明&lt;/h4&gt;
 
-&lt;p&gt;&lt;img src=&quot;/Users/chao/Library/Containers/com.tencent.qq/Data/Library/Application Support/QQ/Users/842947859/QQ/Temp.db/5C4D5D64-AA49-4B8D-AC7D-1C04203625AC.png&quot; alt=&quot;Mou Icon&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;images/myimage/5C4D5D64-AA49-4B8D-AC7D-1C04203625AC.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;use scalar properties for primitive data type // 使用标量属性的原始数据类型&lt;/li&gt;
@@ -147,16 +146,17 @@ JDBC就是一种持久化机制。文件IO也是一种持久化机制。
 
 &lt;h4 id=&quot;core-data-&quot;&gt;Core Data 中的线程安全&lt;/h4&gt;
 
-&lt;p&gt;&lt;code&gt;
-一定要记住：Core Data不是线程安全的
+&lt;blockquote&gt;
+
+  &lt;p&gt;一定要记住：Core Data不是线程安全的
 NSManagedObject
 NSManagedObjectContext
 NSPersistentStoreCoordinator
 以上三个类，都不是线程安全的，同时这些类实例化的对象仅允许在被创建的线程内被使用
-这意味着，在多线程使用Core Data的时候，每个需要执行Core Data的线程都需要有一个NSManagedObjectContext，但是每一个NSManagedObjectContext都不知道彼此的存在，同时在一个上下文中所做的修改，也不会自动同步到另一个上下文中
-&lt;/code&gt;&lt;/p&gt;
+这意味着，在多线程使用Core Data的时候，每个需要执行Core Data的线程都需要有一个NSManagedObjectContext，但是每一个NSManagedObjectContext都不知道彼此的存在，同时在一个上下文中所做的修改，也不会自动同步到另一个上下文中&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;```
+&lt;p&gt;``` Obejctive-C
 - (NSString *)appendDocumentDir {
     NSString *dir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     return [dir stringByAppendingPathComponent:self.lastPathComponent];
@@ -164,7 +164,7 @@ NSPersistentStoreCoordinator
 
 &lt;p&gt;```&lt;/p&gt;
 
-    &lt;p&gt;&lt;a href=&quot;/chao-CoreData/&quot;&gt;Core Data&lt;/a&gt; was originally published by Your Name at &lt;a href=&quot;&quot;&gt;张雪超&lt;/a&gt; on April 19, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/chao-CoreData/&quot;&gt;Core Data&lt;/a&gt; was originally published by Your Name at &lt;a href=&quot;&quot;&gt;chao&lt;/a&gt; on April 19, 2015.&lt;/p&gt;
   </content>
 </entry>
 
