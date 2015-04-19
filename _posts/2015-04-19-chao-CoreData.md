@@ -85,7 +85,7 @@ JDBC就是一种持久化机制。文件IO也是一种持久化机制。
 例：int_16不会再变为NSNuber类型 ，所以默认都不用勾选* @dynamic在Objective-C中，如果将某个属性实现为@dynamic，意味着告诉编译器不会在编译时确定这个属性的行为实现，因此不需要在编译期间对这个属性的getter、setter做检查####Core Data 中的线程安全>一定要记住：Core Data不是线程安全的NSManagedObjectNSManagedObjectContextNSPersistentStoreCoordinator以上三个类，都不是线程安全的，同时这些类实例化的对象仅允许在被创建的线程内被使用这意味着，在多线程使用Core Data的时候，每个需要执行Core Data的线程都需要有一个NSManagedObjectContext，但是每一个NSManagedObjectContext都不知道彼此的存在，同时在一个上下文中所做的修改，也不会自动同步到另一个上下文中
 
 
-``` Obejctive-C
+```objc
 - (NSString *)appendDocumentDir {
     NSString *dir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     return [dir stringByAppendingPathComponent:self.lastPathComponent];

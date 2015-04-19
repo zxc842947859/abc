@@ -4,7 +4,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-04-19T04:34:08-04:00</updated>
+<updated>2015-04-19T04:55:20-04:00</updated>
 <id>/</id>
 <author>
   <name>Your Name</name>
@@ -156,7 +156,7 @@ NSPersistentStoreCoordinator
 这意味着，在多线程使用Core Data的时候，每个需要执行Core Data的线程都需要有一个NSManagedObjectContext，但是每一个NSManagedObjectContext都不知道彼此的存在，同时在一个上下文中所做的修改，也不会自动同步到另一个上下文中&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;``` Obejctive-C
+&lt;p&gt;```objc
 - (NSString *)appendDocumentDir {
     NSString *dir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     return [dir stringByAppendingPathComponent:self.lastPathComponent];
